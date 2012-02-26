@@ -1,0 +1,36 @@
+[submodule "html.tmbundle"]
+	path = html.tmbundle
+	url = git://github.com/textmate/html.tmbundle.git
+[submodule "html5.tmbundle"]
+	path = html5.tmbundle
+	url = git://github.com/johnmuhl/html5.tmbundle.git
+[submodule "css.tmbundle"]
+	path = css.tmbundle
+	url = git://github.com/textmate/css.tmbundle.git
+[submodule "CSS3.tmbundle"]
+	path = CSS3.tmbundle
+	url = git://github.com/desandro/CSS3.tmbundle.git
+[submodule "todo.tmbundle"]
+	path = todo.tmbundle
+	url = git://github.com/textmate/todo.tmbundle.git
+[submodule "markdown.tmbundle"]
+	path = markdown.tmbundle
+	url = git://github.com/textmate/markdown.tmbundle.git
+[submodule "jquery.tmbundle"]
+	path = jquery.tmbundle
+	url = git://github.com/kswedberg/jquery-tmbundle.git
+[submodule "mCSS.tmbundle"]
+	path = mCSS.tmbundle
+	url = https://github.com/minimaldesign/mCSS.tmbundle.git
+[submodule "juanghurtado.tmbundle"]
+	path = juanghurtado.tmbundle
+	url = git@github.com:juanghurtado/juanghurtado.tmbundle.git
+[submodule "YUI-Compressor.tmbundle"]
+	path = YUI-Compressor.tmbundle
+	url = https://github.com/mattkirman/YUI-Compressor-tmbundle.git
+[submodule "less.tmbundle"]
+	path = less.tmbundle
+	url = https://github.com/appden/less.tmbundle.git
+[submodule "less-elements.tmbundle"]
+	path = less-elements.tmbundle
+	url = git@github.com:juanghurtado/less-elements.tmbundle.git

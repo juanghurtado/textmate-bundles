@@ -34,3 +34,6 @@
 [submodule "less-elements.tmbundle"]
 	path = less-elements.tmbundle
 	url = git@github.com:juanghurtado/less-elements.tmbundle.git
+[submodule "jasmine.tmbundle"]
+	path = jasmine.tmbundle
+	url = https://github.com/pivotal/jasmine-tmbundle.git

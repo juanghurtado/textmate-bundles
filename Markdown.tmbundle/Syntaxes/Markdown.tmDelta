@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>changed</key>
+	<dict>
+		<key>patterns</key>
+		<array>
+			<dict>
+				<key>begin</key>
+				<string>(?x)^
+				(?= [ ]{,3}&gt;.
+				| ([ ]{4}|\t)(?!$)
+				| [#]{1,6}\s*+
+				| [ ]{,3}(?&lt;marker&gt;[-*_])([ ]{,2}\k&lt;marker&gt;){2,}[ \t]*+$
+				)</string>
+				<key>comment</key>
+				<string>
+				We could also use an empty end match and set
+				applyEndPatternLast, but then we must be sure that the begin
+				pattern will only match stuff matched by the sub-patterns.
+			</string>
+				<key>end</key>
+				<string>(?x)^
+				(?! [ ]{,3}&gt;.
+				| ([ ]{4}|\t)
+				| [#]{1,6}\s*+
+				| [ ]{,3}(?&lt;marker&gt;[-*_])([ ]{,2}\k&lt;marker&gt;){2,}[ \t]*+$
+				)</string>
+				<key>name</key>
+				<string>meta.block-level.markdown</string>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>include</key>
+						<string>#block_quote</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#block_raw</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#heading</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#separator</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>begin</key>
+				<string>^[ ]{0,3}([*+-])(?=\s)</string>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>punctuation.definition.list_item.markdown</string>
+					</dict>
+				</dict>
+				<key>end</key>
+				<string>^(?=\S)</string>
+				<key>name</key>
+				<string>markup.list.unnumbered.markdown</string>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>include</key>
+						<string>#list-paragraph</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>begin</key>
+				<string>^[ ]{0,3}([0-9]+\.)(?=\s)</string>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>punctuation.definition.list_item.markdown</string>
+					</dict>
+				</dict>
+				<key>end</key>
+				<string>^(?=\S)</string>
+				<key>name</key>
+				<string>markup.list.numbered.markdown</string>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>include</key>
+						<string>#list-paragraph</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>begin</key>
+				<string>^(?=&lt;(p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|script|noscript|form|fieldset|iframe|math|ins|del)\b)(?!.*?&lt;/\1&gt;)</string>
+				<key>comment</key>
+				<string>
+				Markdown formatting is disabled inside block-level tags.
+			</string>
+				<key>end</key>
+				<string>(?&lt;=^&lt;/\1&gt;$\n)</string>
+				<key>name</key>
+				<string>meta.disable-markdown</string>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>include</key>
+						<string>text.html.basic</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>begin</key>
+				<string>^(?=&lt;(p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|script|noscript|form|fieldset|iframe|math|ins|del)\b)</string>
+				<key>comment</key>
+				<string>Same rule but for one line disables.</string>
+				<key>end</key>
+				<string>$\n?</string>
+				<key>name</key>
+				<string>meta.disable-markdown</string>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>include</key>
+						<string>text.html.basic</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>punctuation.definition.constant.markdown</string>
+					</dict>
+					<key>10</key>
+					<dict>
+						<key>name</key>
+						<string>punctuation.definition.string.end.markdown</string>
+					</dict>
+					<key>11</key>
+					<dict>
+						<key>name</key>
+						<string>string.other.link.description.title.markdown</string>
+					</dict>
+					<key>12</key>
+					<dict>
+						<key>name</key>
+						<string>punctuation.definition.string.begin.markdown</string>
+					</dict>
+					<key>13</key>
+					<dict>
+						<key>name</key>
+						<string>punctuation.definition.string.end.markdown</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>name</key>
+						<string>constant.other.reference.link.markdown</string>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>name</key>
+						<string>punctuation.definition.constant.markdown</string>
+					</dict>
+					<key>4</key>
+					<dict>
+						<key>name</key>
+						<string>punctuation.separator.key-value.markdown</string>
+					</dict>
+					<key>5</key>
+					<dict>
+						<key>name</key>
+						<string>punctuation.definition.link.markdown</string>
+					</dict>
+					<key>6</key>
+					<dict>
+						<key>name</key>
+						<string>markup.underline.link.markdown</string>
+					</dict>
+					<key>7</key>
+					<dict>
+						<key>name</key>
+						<string>punctuation.definition.link.markdown</string>
+					</dict>
+					<key>8</key>
+					<dict>
+						<key>name</key>
+						<string>string.other.link.description.title.markdown</string>
+					</dict>
+					<key>9</key>
+					<dict>
+						<key>name</key>
+						<string>punctuation.definition.string.begin.markdown</string>
+					</dict>
+				</dict>
+				<key>match</key>
+				<string>(?x:
+				\s*						# Leading whitespace
+				(\[)(.+?)(\])(:)		# Reference name
+				[ \t]*					# Optional whitespace
+				(&lt;?)(\S+?)(&gt;?)			# The url
+				[ \t]*					# Optional whitespace
+				(?:
+						((\().+?(\)))		# Match title in quotes…
+					| ((").+?("))		# or in parens.
+				)?						# Title is optional
+				\s*						# Optional whitespace
+				$
+			)</string>
+				<key>name</key>
+				<string>meta.link.reference.def.markdown</string>
+			</dict>
+			<dict>
+				<key>begin</key>
+				<string>^(?=\S)(?![=-]{3,}(?=$))</string>
+				<key>end</key>
+				<string>^(?:\s*$|(?=[ ]{,3}&gt;.))|(?=[ \t]*\n)(?&lt;=^===|^====|=====|^---|^----|-----)[ \t]*\n|(?=^#)</string>
+				<key>name</key>
+				<string>meta.paragraph.markdown</string>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>include</key>
+						<string>#inline</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>text.html.basic</string>
+					</dict>
+					<dict>
+						<key>captures</key>
+						<dict>
+							<key>1</key>
+							<dict>
+								<key>name</key>
+								<string>punctuation.definition.heading.markdown</string>
+							</dict>
+						</dict>
+						<key>match</key>
+						<string>^(={3,})(?=[ \t]*$)</string>
+						<key>name</key>
+						<string>markup.heading.1.markdown</string>
+					</dict>
+					<dict>
+						<key>captures</key>
+						<dict>
+							<key>1</key>
+							<dict>
+								<key>name</key>
+								<string>punctuation.definition.heading.markdown</string>
+							</dict>
+						</dict>
+						<key>match</key>
+						<string>^(-{3,})(?=[ \t]*$)</string>
+						<key>name</key>
+						<string>markup.heading.2.markdown</string>
+					</dict>
+				</array>
+			</dict>
+		</array>
+		<key>repository.block_quote.end</key>
+		<string>(?x)^
+				(?= \s*$
+				| [ ]{,3}(?&lt;marker&gt;[-*_])([ ]{,2}\k&lt;marker&gt;){2,}[ \t]*+$
+				| [ ]{,3}&gt;.
+				)</string>
+		<key>repository.block_quote.patterns</key>
+		<array>
+			<dict>
+				<key>begin</key>
+				<string>(?x)\G
+						(?= [ ]{,3}&gt;.
+						)</string>
+				<key>end</key>
+				<string>^</string>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>include</key>
+						<string>#block_quote</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>applyEndPatternLast</key>
+				<integer>1</integer>
+				<key>begin</key>
+				<string>(?x)\G
+						(?= ([ ]{4}|\t)
+						| [#]{1,6}\s*+
+						| [ ]{,3}(?&lt;marker&gt;[-*_])([ ]{,2}\k&lt;marker&gt;){2,}[ \t]*+$
+						)</string>
+				<key>end</key>
+				<string>^</string>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>include</key>
+						<string>#block_raw</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#heading</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#separator</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>begin</key>
+				<string>(?x)\G
+						(?! $
+						| [ ]{,3}&gt;.
+						| ([ ]{4}|\t)
+						| [#]{1,6}\s*+
+						| [ ]{,3}(?&lt;marker&gt;[-*_])([ ]{,2}\k&lt;marker&gt;){2,}[ \t]*+$
+						)</string>
+				<key>end</key>
+				<string>$|(?&lt;=\n)</string>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>include</key>
+						<string>#inline</string>
+					</dict>
+				</array>
+			</dict>
+		</array>
+		<key>repository.bold.begin</key>
+		<string>(?x)
+						(\*\*|__)(?=\S)								# Open
+						(?=
+							(
+									&lt;[^&gt;]*+&gt;							# HTML tags
+								| (?&lt;raw&gt;`+)([^`]|(?!(?&lt;!`)\k&lt;raw&gt;(?!`))`)*+\k&lt;raw&gt;
+																	# Raw
+								| \\[\\`*_{}\[\]()#.!+\-&gt;]?+			# Escapes
+								| \[
+								(				
+												(?&lt;square&gt;					# Named group
+											[^\[\]\\]				# Match most chars
+													| \\.						# Escaped chars
+													| \[ \g&lt;square&gt;*+ \]		# Nested brackets
+												)*+
+									\]
+									(
+										(							# Reference Link
+											[ ]?					# Optional space
+											\[[^\]]*+\]				# Ref name
+										)
+										| (							# Inline Link
+											\(						# Opening paren
+												[ \t]*+				# Optional whtiespace
+												&lt;?(.*?)&gt;?			# URL
+												[ \t]*+				# Optional whtiespace
+												(					# Optional Title
+													(?&lt;title&gt;['"])
+													(.*?)
+													\k&lt;title&gt;
+												)?
+											\)
+										)
+									)
+								)
+								| (?!(?&lt;=\S)\1).						# Everything besides
+																	# style closer
+							)++
+							(?&lt;=\S)\1								# Close
+						)
+					</string>
+		<key>repository.image-inline.match</key>
+		<string>(?x:
+				\!							# Images start with !
+				(\[)((?&lt;square&gt;[^\[\]\\]|\\.|\[\g&lt;square&gt;*+\])*+)(\]) 
+											# Match the link text.
+				([ ])?						# Space not allowed
+				(\()						# Opening paren for url
+					(&lt;?)(\S+?)(&gt;?)			# The url
+					[ \t]*					# Optional whitespace
+					(?:
+							((\().+?(\)))		# Match title in parens…
+						| ((").+?("))		# or in quotes.
+					)?						# Title is optional
+					\s*						# Optional whitespace
+				(\))
+			 )</string>
+		<key>repository.italic.begin</key>
+		<string>(?x)
+						(\*|_)(?=\S)								# Open
+						(?=
+							(
+									&lt;[^&gt;]*+&gt;							# HTML tags
+								| (?&lt;raw&gt;`+)([^`]|(?!(?&lt;!`)\k&lt;raw&gt;(?!`))`)*+\k&lt;raw&gt;
+																	# Raw
+								| \\[\\`*_{}\[\]()#.!+\-&gt;]?+			# Escapes
+								| \[
+								(				
+												(?&lt;square&gt;					# Named group
+											[^\[\]\\]				# Match most chars
+													| \\.						# Escaped chars
+													| \[ \g&lt;square&gt;*+ \]		# Nested brackets
+												)*+
+									\]
+									(
+										(							# Reference Link
+											[ ]?					# Optional space
+											\[[^\]]*+\]				# Ref name
+										)
+										| (							# Inline Link
+											\(						# Opening paren
+												[ \t]*+				# Optional whtiespace
+												&lt;?(.*?)&gt;?			# URL
+												[ \t]*+				# Optional whtiespace
+												(					# Optional Title
+													(?&lt;title&gt;['"])
+													(.*?)
+													\k&lt;title&gt;
+												)?
+											\)
+										)
+									)
+								)
+								| \1\1								# Must be bold closer
+								| (?!(?&lt;=\S)\1).						# Everything besides
+																	# style closer
+							)++
+							(?&lt;=\S)\1								# Close
+						)
+					</string>
+		<key>repository.link-inline.match</key>
+		<string>(?x:
+				(\[)((?&lt;square&gt;[^\[\]\\]|\\.|\[\g&lt;square&gt;*+\])*+)(\]) 
+											# Match the link text.
+				([ ])?						# Space not allowed
+				(\()						# Opening paren for url
+					(&lt;?)(.*?)(&gt;?)			# The url
+					[ \t]*					# Optional whitespace
+					(?:
+							((\().+?(\)))		# Match title in parens…
+						| ((").+?("))		# or in quotes.
+					)?						# Title is optional
+					\s*						# Optional whitespace
+				(\))
+			 )</string>
+	</dict>
+	<key>deleted</key>
+	<array/>
+	<key>isDelta</key>
+	<true/>
+	<key>uuid</key>
+	<string>0A1D9874-B448-11D9-BD50-000D93B6E43C</string>
+</dict>
+</plist>

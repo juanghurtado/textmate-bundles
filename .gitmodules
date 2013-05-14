@@ -13,9 +13,6 @@
 [submodule "todo.tmbundle"]
 	path = todo.tmbundle
 	url = git://github.com/textmate/todo.tmbundle.git
-[submodule "markdown.tmbundle"]
-	path = markdown.tmbundle
-	url = git://github.com/textmate/markdown.tmbundle.git
 [submodule "jquery.tmbundle"]
 	path = jquery.tmbundle
 	url = git://github.com/kswedberg/jquery-tmbundle.git
@@ -37,3 +34,9 @@
 [submodule "jasmine.tmbundle"]
 	path = jasmine.tmbundle
 	url = https://github.com/pivotal/jasmine-tmbundle.git
+[submodule "coffeescript.tmbundle"]
+	path = coffeescript.tmbundle
+	url = https://github.com/jashkenas/coffee-script-tmbundle.git
+[submodule "mocha-coffeescript.tmbundle"]
+	path = mocha-coffeescript.tmbundle
+	url = https://github.com/markbates/mocha-coffeescript-tmbundle.git

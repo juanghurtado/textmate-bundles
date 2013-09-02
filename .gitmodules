@@ -33,7 +33,7 @@
 	url = git@github.com:juanghurtado/less-elements.tmbundle.git
 [submodule "jasmine.tmbundle"]
 	path = jasmine.tmbundle
-	url = https://github.com/pivotal/jasmine-tmbundle.git
+	url = https://github.com/thefrontside/Jasmine.tmbundle.git
 [submodule "coffeescript.tmbundle"]
 	path = coffeescript.tmbundle
 	url = https://github.com/jashkenas/coffee-script-tmbundle.git
